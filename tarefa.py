@@ -7,7 +7,6 @@ class GerenciadorDeTarefas:
             raise IndexError("Tarefa Inexistente")
         
     def adicionar_tarefa(self, nome, descricao):
-        
         if not nome:
             raise ValueError("O nome da tarefa nao pode ser vazio.")
         
@@ -26,7 +25,7 @@ class GerenciadorDeTarefas:
         
     def marcar_como_em_andamento(self, indice_tarefa):
         self._validar_indice(indice_tarefa)
-        if self.tarefas[indice_tarefa]['status'] == "em andamento":
+        if self.tarefas[indice_tarefa]['status'] == "concluída":
             raise ValueError("Não é possivel alterar o status de uma tarefa concluida")
         self.tarefas[indice_tarefa]['status'] = "em andamento"
         
