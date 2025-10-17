@@ -56,6 +56,11 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         
         self.assertEqual(gerenciador.tarefas[0]['nome'], "Nome Novo")
         self.assertEqual(gerenciador.tarefas[0]['descricao'], "Descrição Nova")
+        
+    def test_editar_tarefa_inexistente(self):
+        gerenciador = GerenciadorDeTarefas()
+        with self.assertRaises(IndexError):
+            gerenciador.editar_tarefa(99, "Nome", "Desc")
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)

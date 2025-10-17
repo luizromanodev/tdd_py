@@ -25,5 +25,7 @@ class GerenciadorDeTarefas:
         self.tarefas[indice_tarefa]['status'] = "em andamento"
         
     def editar_tarefa(self, indice_tarefa, novo_nome, nova_descricao):
+        if not (0 <= indice_tarefa < len(self.tarefas)):
+            raise IndexError("Tarefa Inexistente")
         self.tarefas[indice_tarefa]['nome'] = novo_nome
         self.tarefas[indice_tarefa]['descricao'] = nova_descricao
