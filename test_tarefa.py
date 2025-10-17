@@ -61,6 +61,14 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         gerenciador = GerenciadorDeTarefas()
         with self.assertRaises(IndexError):
             gerenciador.editar_tarefa(99, "Nome", "Desc")
+            
+    def test_excluir_tarefa_com_sucesso(self):
+        gerenciador = GerenciadorDeTarefas()
+        gerenciador.adicionar_tarefa("Tarefa para excluir", "...")
+        self.assertEqual(len(gerenciador.tarefas), 1)
+        
+        gerenciador.excluir_tarefa(0)
+        self.assertEqual(len(gerenciador.tarefas), 0)
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)

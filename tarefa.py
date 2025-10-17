@@ -34,3 +34,6 @@ class GerenciadorDeTarefas:
         self._validar_indice(indice_tarefa)
         self.tarefas[indice_tarefa]['nome'] = novo_nome
         self.tarefas[indice_tarefa]['descricao'] = nova_descricao
+        
+    def excluir_tarefa(self, indice_tarefa):
+        self.tarefas.pop(indice_tarefa)
