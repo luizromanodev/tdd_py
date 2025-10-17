@@ -40,6 +40,14 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         
         gerenciador.marcar_como_em_andamento(0)
         self.assertEqual(gerenciador.tarefas[0]['status'], "em andamento")
+        
+    def test_nao_marcar_em_andamento_tarefa_concluida(self):
+        gerenciador = GerenciadorDeTarefas()
+        gerenciador.adicionar_tarefa("Tarefa Z", "Descrição")
+        gerenciador.marcar_como_concluida(0)
+        
+        with self.assertRaises(ValueError):
+            gerenciador.marcar_como_em_andamento(0)
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)
