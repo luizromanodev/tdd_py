@@ -69,6 +69,11 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         
         gerenciador.excluir_tarefa(0)
         self.assertEqual(len(gerenciador.tarefas), 0)
+        
+    def test_excluir_tarefa_inexistente(self):
+        gerenciador = GerenciadorDeTarefas()
+        with self.assertRaises(IndexError):
+            gerenciador.excluir_tarefa(99)
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)
