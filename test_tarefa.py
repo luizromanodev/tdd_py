@@ -23,6 +23,14 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         gerenciador.adicionar_tarefa("Estudar", "Estudar para a prova")
         gerenciador.marcar_como_concluida(0)
         self.assertEqual(gerenciador.tarefas[0]['status', "concluida"])
+        
+    def test_nao_marcar_tarefa_ja_concluida(self):
+        gerenciador = GerenciadorDeTarefas()
+        gerenciador.adicionar_tarefa("Tarefa X", "Descrição")
+        gerenciador.marcar_como_concluida(0)
+        
+        with self.assertRaises(ValueError):
+            gerenciador.marcar_como_concluida(0)
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)

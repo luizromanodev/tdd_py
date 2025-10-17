@@ -15,4 +15,7 @@ class GerenciadorDeTarefas:
         self.tarefas.append(nova_tarefa)
         
     def marcar_como_concluida(self, indice_tarefa):
-        self.tarefas[indice_tarefa]['status'] = "concluida"
+        if self.tarefas[indice_tarefa]['status'] == "concluída":
+            raise ValueError("A tarefa ja esta concluída")
+        self.tarefas[indice_tarefa]['status'] = "concluída"
+            
