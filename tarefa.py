@@ -18,4 +18,7 @@ class GerenciadorDeTarefas:
         if self.tarefas[indice_tarefa]['status'] == "concluída":
             raise ValueError("A tarefa ja esta concluída")
         self.tarefas[indice_tarefa]['status'] = "concluída"
+        
+    def marcar_como_em_andamento(self, indice_tarefa):
+        self.tarefas[indice_tarefa]['status'] = "em andamento"
             
