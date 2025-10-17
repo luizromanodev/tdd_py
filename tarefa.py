@@ -13,3 +13,6 @@ class GerenciadorDeTarefas:
             "status": "em andamento"
         }
         self.tarefas.append(nova_tarefa)
+        
+    def marcar_como_concluida(self, indice_tarefa):
+        self.tarefas[indice_tarefa]['status'] = "concluida"
