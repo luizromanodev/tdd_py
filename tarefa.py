@@ -23,4 +23,7 @@ class GerenciadorDeTarefas:
         if self.tarefas[indice_tarefa]['status'] == "em andamento":
             raise ValueError("Não é possivel alterar o status de uma tarefa concluida")
         self.tarefas[indice_tarefa]['status'] = "em andamento"
-            
+        
+    def editar_tarefa(self, indice_tarefa, novo_nome, nova_descricao):
+        self.tarefas[indice_tarefa]['nome'] = novo_nome
+        self.tarefas[indice_tarefa]['descricao'] = nova_descricao

@@ -48,6 +48,14 @@ class TestGerenciadorDeTarefas(unittest.TestCase):
         
         with self.assertRaises(ValueError):
             gerenciador.marcar_como_em_andamento(0)
+            
+    def test_editar_tarefa_existente(self):
+        gerenciador = GerenciadorDeTarefas()
+        gerenciador.adicionar_tarefa("Nome Antigo", "Descrição Antiga")
+        gerenciador.editar_tarefa(0, "Nome Novo", "Descrição Nova")
+        
+        self.assertEqual(gerenciador.tarefas[0]['nome'], "Nome Novo")
+        self.assertEqual(gerenciador.tarefas[0]['descricao'], "Descrição Nova")
     
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)
